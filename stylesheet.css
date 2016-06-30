@@ -1,0 +1,20 @@
+
+
+h1 {
+  font-size: 50px;
+}
+
+button {
+  height: 80px;
+  width: 80px;
+  font-size: 20px;
+  background-color: orange;
+  color: black;
+  border-radius: 50%;
+}
+
+#generate {
+  height: 80px;
+  width: 120px;
+  Padding: 10px;
+}
