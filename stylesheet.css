@@ -1,23 +1,161 @@
+/*RESET*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
 body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+/*RESET*/
+
+
+
+
+
+.wrapper {
+  width: 1000px;
+  height: 1500px;
+  margin: auto;
   background-image: url("cheap_diagonal_fabric.png");
   background-color: #deb887;
 }
 
-h1 {
-  font-size: 50px;
+body {
+  /*background-color: #d8c395;*/
+  background: -webkit-linear-gradient(left, #d8c395, #b5985a);
+  background: radial-gradient(#d8c395, #b5985a);
 }
 
-button {
+header {
+  text-align: center;
+}
+
+h1 {
+  padding-top: 50px;
+  font-size: 50px;
+
+}
+
+/*button {
   height: 80px;
   width: 80px;
   font-size: 20px;
-  background-color: orange;
+  background-color: #b5985a;
   color: black;
-  border-radius: 50%;
+  border-radius: 40%;
+  }*/
+
+button
+{
+	display: inline;;
+	font-size: 1.1em;
+	font-weight: bold;
+	text-transform: uppercase;
+	padding: 10px 15px;
+	margin: 20px auto;
+	color: black;
+	background-color: #b5985a;
+	background: -webkit-linear-gradient(#d8c395, #b5985a);
+	background: linear-gradient(#d8c395, #b5985a);
+	border: 0 none;
+	border-radius: 10px;
+	text-shadow: 0 -1px 0 #000;
+	box-shadow: 0 1px 0 #666, 0 5px 0 #444, 0 6px 6px rgba(0,0,0,0.6);
+	cursor: pointer;
+}
+
+button:focus {outline:0;}
+
+button:active {
+  background: -webkit-linear-gradient(#b5985a, #d8c395);
+  background: linear-gradient(#b5985a, #d8c395);
+}
+
+
+.buttons {
+  width: 900px;
+  margin: auto;
+  height: 300px;
+  margin: 80px 0 0 80px;
 }
 
 #generate {
-  height: 80px;
+  position: relative;
+  height: 100px;
   width: 120px;
-  Padding: 10px;
+  padding: 10px;
+  margin-top: 15px;
+  right: -700px;
+  top: -190px;
+  border-radius: 30px;
+
+}
+ul {
+  padding-top: 15px;
+  padding-left: 40px;
+  font-size: 35px;
+  font-weight: bold;
+
+}
+
+li {
+  /*display: block;*/
+  margin-left: 30px;
+  margin-top: 20px;
+  line-height: 10px;
+  list-style-type: none;
+  font-size: 20px;
+
+}
+
+#group0, #group1, #group2, #group3, #group4, #group5, #group6, #group7, #group8, #group9, #group10  {
+  border: 1px solid black;
+  width: 20%;
+  height: auto;
+  float: left;
+  margin: 0 20px 20px 20px;
+	padding-bottom: 15px;
+  background-color: #d8c395;
+  border-radius: 10px;
+  text-shadow: 0 -1px 0 #000;
+  box-shadow: 0 1px 0 #666, 0 5px 0 #444, 0 6px 6px rgba(0,0,0,0.6);
+
 }
