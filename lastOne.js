@@ -21,6 +21,7 @@ $(".buttons").on("click", "button", function () {
 
 $(".generate").on("click","button", function () {
   //  console.log(generatedGroups);
+    $(".groupsClass").empty();
     for(var i =0; i < generatedGroups.length; i++){
         var tempGroup = "group" + i;
             $(".groupsClass").append("<div id=\""+tempGroup+"\"><ul>" + "Group"+(i + 1) + "</ul></div>");
