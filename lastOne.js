@@ -18,16 +18,18 @@ $(".generate").on("click","button", function () {
       alert("Please select how many groups you need.");
     }else{
     $(".groupsClass").empty();
+    setTimeout(function (){
     for(var i =0; i < generatedGroups.length; i++){
-        var tempGroup = "group" + i;
-        $(".groupsClass").append("<div id=\""+tempGroup+"\"><ul>" + "Group"+(i + 1) + "</ul></div>")
-        
 
-        console.log(tempGroup);
+        var tempGroup = "group" + i;
+        $(".groupsClass").append("<div class =\"group\" id=\""+tempGroup+"\"><ul>" + "Group"+(i + 1) + "</ul></div>");
+
         for(var j =0; j < generatedGroups[i].length; j++){
             $("#"+tempGroup).append("<li>" + generatedGroups[i][j] + "</li>");
         }
-      }
+        }
+      }, 600);
+
     }
 });
 
