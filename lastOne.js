@@ -10,27 +10,31 @@ $(document).ready(function() {
 $(".buttons").on("click", "button", function () {
   button = parseInt($(this).attr("id"));
 });
+var group1,group2,group3,group4,group5,group6,group7,group8,group9,group10;
 
 $(".generate").on("click","button", function () {
-  generatedGroups = generateGroups();
-   console.log(button);
+    generatedGroups = generateGroups();
+    var group = 0;
+
     if (button === null){
       alert("Please select how many groups you need.");
     }else{
-    $(".groupsClass").empty();
-    setTimeout(function (){
-    for(var i =0; i < generatedGroups.length; i++){
-
+      $(".groupsClass").empty();
+      for(var i =0; i < generatedGroups.length; i++){
         var tempGroup = "group" + i;
-        $(".groupsClass").append("<div class =\"group\" id=\""+tempGroup+"\"><ul>" + "Group"+(i + 1) + "</ul></div>");
+
+        var text = $(".groupsClass").append("<div class =\"group\" id=\""+tempGroup+"\"><ul>" + "Group"+(i + 1) + "</ul></div>");
 
         for(var j =0; j < generatedGroups[i].length; j++){
             $("#"+tempGroup).append("<li>" + generatedGroups[i][j] + "</li>");
         }
-        }
-      }, 600);
+      }
+      //iterate through all group divs, change each display from 'none' to 'inline-block' at a rate of 500 * i (so the display is staggered)
+      for(var i = 0; i < button; i++){
+        $('#group'+i).show(500*i).css({display: 'inline-block'});
+      }
+  }
 
-    }
 });
 
 //integer randomization is now possible
@@ -46,7 +50,6 @@ function generateGroups() {
   //assigns associated names to the randomized numbers, creates an array of names in random order
   getName(numArr,nameArr);
   var chunk = (nameArr.length+1)/button;
-  console.log(chunk);
 
   //creates an array of array: the nameArr order has already been randomized, so this breaks it into section of 'chunk' number of names.
   //Chunk is currently hard-coded, but will be assigned the value of the pressed button.
