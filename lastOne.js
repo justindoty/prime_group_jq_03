@@ -1,4 +1,4 @@
-var button;
+var button = null;
 var generatedGroups = [];
 var numArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
 var nameArr = [];
@@ -6,32 +6,34 @@ var nameArr = [];
 
 $(document).ready(function() {
 
-//button is temporarily hard-code: will be replaced by the value of the pressed button
-
-
 
 $(".buttons").on("click", "button", function () {
   button = parseInt($(this).attr("id"));
-  generatedGroups = generateGroups();
-
-  // console.log(button);
-  console.log(generatedGroups);
-
 });
+var group1,group2,group3,group4,group5,group6,group7,group8,group9,group10;
 
 $(".generate").on("click","button", function () {
-  //  console.log(generatedGroups);
-    $(".groupsClass").empty();
-    for(var i =0; i < generatedGroups.length; i++){
+    generatedGroups = generateGroups();
+    var group = 0;
+
+    if (button === null){
+      alert("Please select how many groups you need.");
+    }else{
+      $(".groupsClass").empty();
+      for(var i =0; i < generatedGroups.length; i++){
         var tempGroup = "group" + i;
-            $(".groupsClass").append("<div id=\""+tempGroup+"\"><ul>" + "Group"+(i + 1) + "</ul></div>");
-            console.log(tempGroup);
+
+        var text = $(".groupsClass").append("<div class =\"group\" id=\""+tempGroup+"\"><ul>" + "Group"+(i + 1) + "</ul></div>");
+
         for(var j =0; j < generatedGroups[i].length; j++){
             $("#"+tempGroup).append("<li>" + generatedGroups[i][j] + "</li>");
-          }
-}
-
-
+        }
+      }
+      //iterate through all group divs, change each display from 'none' to 'inline-block' at a rate of 500 * i (so the display is staggered)
+      for(var i = 0; i < button; i++){
+        $('#group'+i).show(500*i).css({display: 'inline-block'});
+      }
+  }
 
 });
 
@@ -47,8 +49,7 @@ function generateGroups() {
   numArr = shuffle(numArr);
   //assigns associated names to the randomized numbers, creates an array of names in random order
   getName(numArr,nameArr);
-  var chunk = nameArr.length/button;
-  console.log(chunk);
+  var chunk = (nameArr.length+1)/button;
 
   //creates an array of array: the nameArr order has already been randomized, so this breaks it into section of 'chunk' number of names.
   //Chunk is currently hard-coded, but will be assigned the value of the pressed button.
@@ -58,7 +59,7 @@ function generateGroups() {
 
 }
 
-//SHUFFLE.
+//SHUFFLE
 function shuffle(array) {
   var m = array.length, t, i;
   // While there remain elements to shuffle…
@@ -77,7 +78,7 @@ function shuffle(array) {
 var createGroupedArray = function(arr, chunkSize) {
     var groups = [], i;
     for (i = 0; i < arr.length; i += chunkSize) {
-        groups.push(arr.slice(i, i + chunkSize));
+      groups.push(arr.slice(i, i + chunkSize));
     }
     return groups;
 }
@@ -151,7 +152,5 @@ function getName(arr, nameArr){
       }
     }
   };
-
-//DO THE THING
 
 });
